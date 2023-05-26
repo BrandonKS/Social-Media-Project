@@ -16,7 +16,7 @@ body {
 #appBanner {
   position: relative;
   top: 25;
-  left: ;
+  left: 0;
   transform: rotate(-35deg);
   transform-origin: top left;
 }

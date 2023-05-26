@@ -1,0 +1,1 @@
+I want to incorporate this text style for the logo..... HAVE to learn how to make this happen in conjunction with the login index example Created called bubble_text.html
