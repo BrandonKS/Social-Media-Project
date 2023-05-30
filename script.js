@@ -40,7 +40,7 @@ function addCard(card) {
 
 let cardsData = [];
 function getData() {
-  //hits api in console on browser
+  //hits api in console on browser such as star wars api from example in class or cats api
   fetch("https://jsonplaceholder.typicode.com/posts?_limit=10") // adding in ?_limit=10 sets max output at 10 response items
     .then((response) => response.json())
     .then((json) => {
@@ -59,7 +59,7 @@ setInterval(() => {
   while (list.hasChildNodes()) {
     list.removeChild(list.firstChild);
   }
-  console.log("pulling"); //console.log here to show function working inside the browser console.
+  // console.log("pulling"); //console.log here to show function working inside the browser console.
   news.map((item) => {
     addCard(item);
   });
