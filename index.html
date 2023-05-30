@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Home Page</title>
+    <link rel="stylesheet" href="stylesheet.css" />
+    <link rel="stylesheet" href="login\bubblestyle.css" />
+
+    <style></style>
+  </head>
+
+  <body>
+    <TopNav> </TopNav>
+    <header class="hero">
+      <div class="cloud-container">
+        <div class="cloud-title">
+          <span>A</span>
+          <span>d</span>
+          <span>v</span>
+          <span>e</span>
+          <span>n</span>
+          <span>t</span>
+          <span>u</span>
+          <span>r</span>
+          <span>e</span>
+          <span></span>
+          <span></span>
+          <span>B</span>
+          <span>o</span>
+          <span>o</span>
+          <span>k</span>
+        </div>
+      </div>
+      <button class="icon">
+        <img src="Assets\Icons\iconmonstr-search-thin.svg" />
+      </button>
+      <button class="icon">
+        <img src="Assets\Icons\messenger (2).svg" />
+      </button>
+      <button class="icon">
+        <img src="Assets\Icons\agenda-book.svg" />
+      </button>
+      <button class="icon">
+        <img class="iconimg" src="Assets\Icons\ProfileIcon.svg" />
+      </button>
+
+      <img class="profilePic" src="Assets\Icons\Orange Tank Cat.jpg" />
+      <button class="backgroundButton">Change Background</button>
+    </header>
+
+    <div class="mainBody">
+      <nav class="navLeft">
+        <div class="navButton xCenter"><img class="icon" src="Assets\Icons\home-alt-1.svg"><button class="navButtontext"> Back To Camp</button></p></div>
+        <div class="navButton xCenter"><img class="icon" src="Assets\Icons\agenda-pencil-left.svg"><button class="navButtontext"> Adventurer's Name</button></p></div>
+        <div class="navButton xCenter"><img class="icon" src="Assets\Icons\agenda-book.svg"><button class="navButtontext"> Character Sheet</button></p></div>
+        <div class="navButton xCenter"><img class="icon" src="Assets\Icons\Add User.png"><button class="navButtontext"> Party Sheets</button></p></div>
+        <div class="navButton xCenter"><img class="icon" src="Assets\Icons\adventure-backpack.png"><button class="navButtontext"> Adventure Log</button></p></div>
+        <div class="navButton xCenter"><img class="icon" src="Assets\Icons\d20.svg"><button class="navButtontext"> Combat Log</button></p></div>
+        <div id="addBox">
+          <p>Im A Super ADD Look At me!!</p>
+          <img id="randomImage" src="" alt="Random Image" />
+        </div>
+      </nav>
+      
+      <div class="livePosts">
+        <div class="postButton">
+          <div class="postTop forms">
+                <img class="icon" src="Assets\Icons\Orange Tank Cat.jpg" alt="profile picture"/>
+                <form onsubmit="submitButton()" method='dialog'>  <!-- adding method="dialog" prevents page refresh on button click and shows in console on browser-->        
+                  <!-- <label for="title"> Title: </label> -->
+                  <input id="news-title" type="text" name="title" placeholder="Title here......"/>
+                  <!-- <label for="content"> Content: </label> -->
+                  <input id="news-content"type="text" name="content" placeholder="Tell us your tale....."/>
+                  <!-- <label for="URL"> URL: </label> -->
+                  <input id="news-URL" type="text" name="URL" placeholder="Trophy Pictures URL"/>
+                  <input type="submit"></input>
+                </form>                
+                
+          </div>
+          
+          <div class="postBot">
+            <button class="invisButton"><span class="xCenter"><img class="posticonBot" src="Assets\Icons\video icon light border.svg"><p>Live Video</p></span></button>
+            <button class="invisButton"><span class="xCenter"><img class="posticonBot" src="Assets\Icons\photos icon.svg"><p>Photos</p></span></button>
+            <button class="invisButton"><span class="xCenter"><img class="posticonBot" src="Assets\Icons\event icon light fill.svg"><p>Events</p></span></button>
+          </div> 
+        </div>
+        <template id="card-template">
+          <div class="card">
+            <div class="card-body">
+              <div class="card-title"></div>
+              <img class="card-img" src="" alt="" />
+              <div class="card-text"></div>
+            </div>
+          </div>
+        </template>
+        <div id="card-list"></div>
+    
+      </div>
+      <nav class="navRight">
+        <div class="navRightTitle">Companions</div>
+        <!-- <div class="navButton">Companions</div> -->
+        <div class="navButton xCenter"><img class="icon rightNavIcon" src="Assets\Icons\Random Users\person (1).jpg"><button class="navButtontext"> Companion Name</button></p></div>
+        <div class="navButton xCenter"><img class="icon rightNavIcon" src="Assets\Icons\Random Users\person 2.jpg"><button class="navButtontext"> Companion Name</button></p></div>
+        <div class="navButton xCenter"><img class="icon rightNavIcon" src="Assets\Icons\Random Users\person 3.jpg"><button class="navButtontext"> Companion Name</button></p></div>
+        <div class="navButton xCenter"><img class="icon rightNavIcon" src="Assets\Icons\Random Users\person 4.jpg"><button class="navButtontext"> Companion Name</button></p></div>
+        <div class="navButton xCenter"><img class="icon rightNavIcon" src="Assets\Icons\Random Users\person 5.jpg"><button class="navButtontext"> Companion Name</button></p></div>
+        <div class="navButton xCenter"><img class="icon rightNavIcon" src="Assets\Icons\Random Users\person 11.jpg"><button class="navButtontext"> Companion Name</button></p></div>
+        <div class="navButton xCenter"><img class="icon rightNavIcon" src="Assets\Icons\Random Users\person 14.jpg"><button class="navButtontext"> Companion Name</button></p></div>
+        <div class="navButton xCenter"><img class="icon rightNavIcon" src="Assets\Icons\Random Users\person 6.jpg"><button class="navButtontext"> Companion Name</button></p></div>
+        <div class="navButton xCenter"><img class="icon rightNavIcon" src="Assets\Icons\Random Users\person 7.jpg"><button class="navButtontext"> Companion Name</button></p></div>
+
+      </nav>
+    </div>
+    <footer></footer>
+    <script src="script.js"></script>
+
+  </body>
+</html>
