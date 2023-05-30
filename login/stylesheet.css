@@ -1,0 +1,66 @@
+@font-face {
+  font-family: "Finger Paint";
+  src: url("path/to/fingerpaint.woff2") format("woff2"),
+    url("path/to/fingerpaint.woff") format("woff");
+  /* Add additional font formats if available (e.g., .ttf, .otf) */
+  /* Specify the path to the font files in the 'url' property */
+}
+
+body {
+  font-family: "Finger Paint", Arial, sans-serif;
+  background-color: #f2f2f2;
+  display: flex;
+  /* justify-content: center; */
+  background-color: #fff;
+}
+#appBanner {
+  position: relative;
+  top: 25;
+  left: 0;
+  transform: rotate(-35deg);
+  transform-origin: top left;
+}
+
+.login_container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+h1 {
+  text-align: center;
+}
+.login_container {
+  /* display: flex; */
+  border: 4px solid green;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 101px;
+  box-sizing: border-box;
+  border: 4px solid red;
+}
+
+.submit {
+  width: 25%;
+  padding: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 4px solid rgb(99, 46, 158);
+}
+
+button:hover {
+  background-color: #45a049;
+}
