@@ -21,9 +21,9 @@ let posts = [
       },
       {
         id: "4",
-        title: "Title of Random Blank Post 4",
+        title: "Title of Random Default Post 4",
         content: "Content for Random Blank post 4",
-        imageURL: "Assets/Images/placeholder img.png"
+        URL: "Assets/Images/placeholder img.png"
       }
 ]
 

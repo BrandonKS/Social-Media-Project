@@ -15,6 +15,22 @@ router.get('posts/:id', (req, res) => { // important to note that this takes in 
     feedController.getPostById(req, res) //this uses the feedController and applies postByID method to run through backend
 })
 
+router.post('/posts/add', (req, res) => {
+    feedController.addPost(req, res)
+})
+
+router.delete('/posts/:id', (req, res) => {
+    feedController.deletePost(req, res)
+}); //set up to accommodate a delete posts route per Roberts Challenge
+
+router.put('/posts/:id', (req, res) => {
+    feedController.updatePost(req, res)
+}) //this SHOULD work for updating the posts.
+// router.put('/posts/:id', (req, res) => {    //says res not going anywhere here.........noting it out and scrapping for now. doing new code above this
+//     const postId = req.params.id;
+//     const newData = req.body
+// });
+
 module.exports = router //ALWAYS EXPORT THE ROUTE....... I cannot make this note bold and bigger or I would for personal frustration reasons alone.
 //note to self without this export line your nodemon crashes. avoid this headache in the future.. lesson learned
 
