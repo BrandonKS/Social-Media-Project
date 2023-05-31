@@ -30,6 +30,7 @@ const addPost = (req, res) => {
         const result = db.addPost(data)    // set said title and content to new variable called result
         res.status(201).json({ result: "Post created Successfully!", databaseLength: result})
     } else {
+        console.log("Error! Invalid Post data!!") // added to log error to console
         res.status(400).json({ error: "Incorrect post data!"})
     }
 }
