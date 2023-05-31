@@ -45,6 +45,11 @@ class Database {
     posts.push(newPost); //pushes newPost into the array
     return post.length; //tells you length of the new array after newPost pushed into it.
   }
+
+
+  // I feel like im supposed to add in a database function here for modifying posts and deleting posts..... check with robert.
+
+
 } //NOTE TO SELF: nothing past here or you're outside the database class and it wont work with the exception of the module export below
 
 module.exports = Database;
