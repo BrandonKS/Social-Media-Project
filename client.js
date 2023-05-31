@@ -22,10 +22,6 @@ const data = [
   },
 ];
 
-
-
-
-
 //adds new card when form is submitted on main page. Can also tie this to the submit button on new post page I guess
 function addCard(card) {
   const template = document
@@ -38,21 +34,6 @@ function addCard(card) {
   document.querySelector("#card-list").appendChild(template);
 }
 
-let cardsData = [];
-function getData() {
-  //hits api in console on browser such as star wars api from example in class or cats api
-  fetch("https://jsonplaceholder.typicode.com/posts?_limit=10") // adding in ?_limit=10 sets max output at 10 response items
-    .then((response) => response.json())
-    .then((json) => {
-      console.log(json);
-
-      json.map((item) => {
-        addCard(item);
-      });
-    }); //takes parsed response and assigns to json
-}
-
-// getData(); //calls function
 setInterval(() => {
   //"manage data" from module 4 slide 57 example,  to set a delay of 0.5 seconds
   const list = document.querySelector("#card-list");
@@ -83,37 +64,14 @@ let news = [
   {
     id: 3,
     title: "Missing?!? Has anyone seen my Cat companion MeatBAll?",
-    content: " He is a tricky feline that keeps sneaking out to party with the neighbors cats. He answers to Sir Meatball or The Dark Knight and will be found near most food sources. Any inform.......",
+    content:
+      " He is a tricky feline that keeps sneaking out to party with the neighbors cats. He answers to Sir Meatball or The Dark Knight and will be found near most food sources. Any inform.......",
     URL: "Assets/Icons/Orange Tank Cat.jpg",
   },
 ];
 
-//function to make form submission do stuff
-function submitButton(event) {
-  /// this is a function to pull local data not from api
-  console.log("button clicked");
-  const title = document.getElementById("news-title");
-  const content = document.getElementById("news-content");
-  const URL = document.getElementById("news-URL");
-
-  let newItems = {
-    title: title.value,
-    content: content.value,
-    URL: URL.value,
-  };
-  news.push(newItems);
-}
-
-
-// Array of pre-stored image URLs
-const images = [
-    { url: 'Assets/Images/guittar add with flavor.jpg' },
-    { url: 'Assets/Images/blowing fire.jpg' },
-    { url: 'Assets/Images/frozen man.jpg' },
-    // Add more image URLs as needed
-  ];
-  
-  // Function to generate a random index within the range of the images array length
+// Function to generate a random index within the range of the images array length
+  // All of this is to generate a random add inside the add box place holder. its bugging out nodemon however so gots to go.
   function getRandomIndex() {
     return Math.floor(Math.random() * images.length);
   }
