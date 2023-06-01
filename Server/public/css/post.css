@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+* {font-family: "Pacifico", cursive;}
+
+
+body {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    position:relative;
+    top: 50px;
+}
+.postBox {
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    width: 380px;
+    background: white;
+    border: 2px solid grey;
+    border-radius: 22px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+.title {
+    display: flex;
+    color: rgb(1, 1, 1);
+    justify-content: center;
+    /* border: 2px solid green; */
+    height: 40px;
+    font-weight: bold;
+    border-bottom: 1px solid grey;
+    align-items: center;
+}
+.profileInfo{
+    display: flex;
+    align-items: center;
+    margin: 5px;
+    /* border-bottom: 1px solid grey; */
+    /* padding-top: 5px; */
+    /* padding-bottom: 10px; */
+}
+.profilePic {
+    height: 45px;
+    width: 45px;
+    /* width: 100%; */
+    /* margin: 10px; */
+    /* margin-left: 5px; */
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.textContent {
+    border: 1px solid grey;
+    display: flex;
+    width: 370px;
+    height: 75px;
+    justify-content: start;
+    align-content: top;
+    border: none;
+    word-wrap: break-word;
+}
+.mediaBox {
+    border: 1px solid grey;
+    border-radius: 10px;
+    background-color: rgb(234, 232, 232);
+    box-shadow: inset 0 0 0 4px white;
+    height: 240px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.AddPhoto {
+    height: 35px;
+}
+
+
+
+#postContent {
+    display: flex;
+    width: 380px;
+    justify-content: center;
+    position: absolute;
+    bottom: 25px;
+
+}

@@ -3,7 +3,7 @@ const router = express.Router()
 
 const feedController = require('../controllers/feedController') // importing feed controller into route so can add in allposts/postsbyid directionality
 
-// THIS PORTION DISPLAYS ALL POSTS
+// THIS PORTION DISPLAYS ALL POSTS http://localhost:3000/feed/posts
 router.get('/posts', (req, res) => {  // uses express router to pull data from /posts using request response. /posts is the endpoint
     // res.status(200).json( {result: 'List the users main feed'}) // removed later to include the routes for all posts and id post query 
     // this line above was mainly just to say "code did it status 200 a-ok" and then sends the pulled results as a string to send back as the "response body"
@@ -11,13 +11,17 @@ router.get('/posts', (req, res) => {  // uses express router to pull data from /
     //Handles requests to '/posts' endpoint
 })
 
+//get a post by id http://localhost:3000/feed/posts/4
+
 router.get('posts/:id', (req, res) => { // important to note that this takes in a DYNAMIC VALUE (id). Handles requests to '/posts:id' endpoint
     feedController.getPostById(req, res) //this uses the feedController and applies postByID method to run through backend
 })
 
+//route to create a post http://localhost:3000/feed/posts/add
 router.post('/posts/add', (req, res) => {
     feedController.addPost(req, res)
 })
+
 
 router.delete('/posts/:id', (req, res) => {
     feedController.deletePost(req, res)
