@@ -1,5 +1,5 @@
 const Database = require("../libraries/databaseLib"); //says must use this "mock library" to pull data from
-const { post } = require("../routes/feedRoute");
+// const { post } = require("../routes/feedRoute");
 
 const db = new Database(); //creating new instance of Database and assigning it to variable db for naming simplicity
 

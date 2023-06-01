@@ -1,4 +1,4 @@
-const { addPost } = require("../controllers/feedController.js");
+// const { addPost } = require("../controllers/feedController.js");
 const postsData = require("../data/postsData.js"); // this pulls the data from postsData file inside data folder. The object array. // is this link the same as Server/data/postsData.js???? ask robert. I have been using relative path to mark these reference links and need to know if thats an accurate way 100% of the time
 const posts = postsData.posts; // this part pulls the actual posts property from the imported object and assigns them to a constant variable calls posts
 
@@ -43,7 +43,7 @@ class Database {
     };
 
     posts.push(newPost); //pushes newPost into the array
-    return post.length; //tells you length of the new array after newPost pushed into it.
+    return posts.length; //tells you length of the new array after newPost pushed into it.
   }
 
 
