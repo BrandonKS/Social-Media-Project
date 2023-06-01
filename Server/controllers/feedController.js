@@ -23,55 +23,60 @@ const getPostById = (req, res) => {
 };
 
 const addPost = (req, res) => {
-    const data = req.body;
-    console.log("Add post", req.body) //controllers goal here is to check if properties are all accounted for before adding to database aka title content and URL
+  const data = req.body;
+  console.log("Add post", req.body); //controllers goal here is to check if properties are all accounted for before adding to database aka title content and URL
 
-    if(data.title && data.content) {   // translated: if both title and content have been filled in THEN... continue to next line of if statement
-        const result = db.addPost(data)    // set said title and content to new variable called result
-        res.status(201).json({ result: "Post created Successfully!", databaseLength: result})
-    } else {
-        console.log("Error! Invalid Post data!!") // added to log error to console
-        res.status(400).json({ error: "Incorrect post data!"})
-    }
-}
+  if (data.title && data.content) {
+    // translated: if both title and content have been filled in THEN... continue to next line of if statement
+    const result = db.addPost(data); // set said title and content to new variable called result
+    res
+      .status(201)
+      .json({ result: "Post created Successfully!", databaseLength: result });
+  } else {
+    console.log("Error! Invalid Post data!!"); // added to log error to console
+    res.status(400).json({ error: "Incorrect post data!" });
+  }
+};
 
 //challenge from Robert = delete posts //update posts
 const deletePost = (req, res) => {
-    const postId = req.params.id;   //takes in id of a post and sets it to variable postId
-    const result = db.deletePost(postId);       //runs that id through delete post function clearing it if it does come back as found(200)
+  const postId = req.params.id; //takes in id of a post and sets it to variable postId
+  const result = db.deletePost(postId); //runs that id through delete post function clearing it if it does come back as found(200)
 
-    if (result) {       //if result comes back 200 showing id exists it clears it using const result above and then returns response below
-        res.status(200).json({ result: "Post deleted successfully!"})
-    } else {            //if result comes back 404 showing id doesn't exist nothing happens except post not found returned
-        res.status(404).json({ error: "Post not found!"})
-    }
-}
+  if (result) {
+    //if result comes back 200 showing id exists it clears it using const result above and then returns response below
+    res.status(200).json({ result: "Post deleted successfully!" });
+  } else {
+    //if result comes back 404 showing id doesn't exist nothing happens except post not found returned
+    res.status(404).json({ error: "Post not found!" });
+  }
+};
 const updatePost = (req, res) => {
-    const postId = req.params.id;   //pulls id and sets to variable postId
-    const newData = req.body;       //pulls the params of data and sets it to variable newData
-    console.log('Update post', postId, newData)     // adds update context to console in browser
+  const postId = req.params.id; //pulls id and sets to variable postId
+  const newData = req.body; //pulls the params of data and sets it to variable newData
+  console.log("Update post", postId, newData); // adds update context to console in browser
 
-    if (newData.title && newData.content) {
-        const result = db.updatePost(postId, newData);
-        if (result) {
-            res.status(200).json({ result: 'Post updated successfully!'})    // 200 = good response
-        } else {
-            res.status(404).json({ error: 'Post not found!'})       //404 = bad data
-        }
+  if (newData.title && newData.content) {
+    const result = db.updatePost(postId, newData);
+    if (result) {
+      res.status(201).json({ result: "Post updated successfully!" }); // 200 = good response 201=record updated
     } else {
-        res.status(400).json({ error: 'Incorrect post Data!'})  // added this part for if user doesn't put in all the information needed for a post
+      res.status(404).json({ error: "Post not found!" }); //404 = bad data
     }
-}
+  } else {
+    res.status(400).json({ error: "Incorrect post Data!" }); // added this part for if user doesn't put in all the information needed for a post
+  }
+};
 
 module.exports = {
   getPosts,
   getPostById,
   addPost,
   deletePost,
-  updatePost
+  updatePost,
 };
 //Didn't leave this part out this time look at me go.
-// This time exporting 5 functions is necessary. 
+// This time exporting 5 functions is necessary.
 // getPosts pulls all posts from db
 // getPostById pulls specific post
 // addPost creates a new post for the db to StorageEvent

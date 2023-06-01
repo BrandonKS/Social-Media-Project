@@ -48,7 +48,11 @@ class Database {
 
 
   // I feel like im supposed to add in a database function here for modifying posts and deleting posts..... check with robert.
+  deletePost(data) {
+    this.#log(data.id);
 
+    posts.pop()
+  }
 
 } //NOTE TO SELF: nothing past here or you're outside the database class and it wont work with the exception of the module export below
 
