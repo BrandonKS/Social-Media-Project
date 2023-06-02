@@ -101,26 +101,26 @@ const images = [
 // getData(); //calls function
 
 // function to make form submission do stuff
-function submitButton(event) {
-  /// this is a function to pull local data not from api.
-  console.log("button clicked");
-  const title = document.getElementById("news-title");
-  const content = document.getElementById("news-content");
-  const URL = document.getElementById("news-URL");
+// function submitButton(event) {
+//   /// this is a function to pull local data not from api.
+//   console.log("button clicked");
+//   const title = document.getElementById("news-title");
+//   const content = document.getElementById("news-content");
+//   const URL = document.getElementById("news-URL");
 
-  let newItems = {
-    title: title.value,
-    content: content.value,
-    URL: URL.value,
-  };
-  news.push(newItems);
-}
+//   let newItems = {
+//     title: title.value,
+//     content: content.value,
+//     URL: URL.value,
+//   };
+//   news.push(newItems);
+// }
 
 // function for sending new post to "database" that is then collected via the fetch call below
 function createPost() {
   //sets up variables that grab values from the form submission
   const title = document.getElementById("news-title");
-  const content = document.getElementById("news-content");
+  const content = document.getElementById("content");
   const URL = document.getElementById("news-URL");
 
   //creates a new object and assigns the new element values to keys. AKA key:value pairing
