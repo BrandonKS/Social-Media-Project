@@ -68,14 +68,15 @@
         <div class="postButton">
           <div class="postTop forms">
                 <img class="icon" src="Assets\Icons\Orange Tank Cat.jpg" alt="profile picture"/>
-                <form onsubmit="submitButton()" method='dialog'>  <!-- adding method="dialog" prevents page refresh on button click and shows in console on browser-->        
+                <!-- <form onsubmit="submitButton()" method='dialog' >  adding method="dialog" prevents page refresh on button click and shows in console on browser         -->
+                  <form>
                   <!-- <label for="title"> Title: </label> -->
-                  <input id="news-title" type="text" name="title" placeholder="Title here......"/>
+                  <input id="news-title" type="text" name="title" placeholder="Title your adventure ..." value=""/>
                   <!-- <label for="content"> Content: </label> -->
-                  <input id="news-content"type="text" name="content" placeholder="Tell us your tale....."/>
+                  <input id="news-content" type="text" name="content" placeholder="Tell us your tale ..." value="">
                   <!-- <label for="URL"> URL: </label> -->
-                  <input id="news-URL" type="text" name="URL" placeholder="Trophy Pictures URL"/>
-                  <input type="submit"></input>
+                  <input id="news-URL" type="text" name="URL" placeholder="Trophy Pictures URL" value=""/>
+                  <input id="addCard" type="submit" onclick="createPost()"></input>
                 </form>                
                 
           </div>
@@ -114,7 +115,7 @@
       </nav>
     </div>
     <footer></footer>
-    <script src="./client.js"></script>
+    <script src="/client.js"></script>
 
   </body>
 </html>

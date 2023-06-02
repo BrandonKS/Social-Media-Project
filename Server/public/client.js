@@ -1,3 +1,5 @@
+// const { response } = require("express");
+
 const data = [
   {
     //object syntax
@@ -21,8 +23,6 @@ const data = [
     alt: "image placeholder 300x200",
   },
 ];
-
-
 
 // setInterval(() => {
 //   //"manage data" from module 4 slide 57 example,  to set a delay of 0.5 seconds
@@ -76,6 +76,14 @@ function setRandomImage() {
 // Call setRandomImage function when the page finishes loading
 window.addEventListener("load", setRandomImage);
 
+// Array of pre-stored image URLs
+const images = [
+  { url: "Assets/Images/guittar add with flavor.jpg" },
+  { url: "Assets/Images/blowing fire.jpg" },
+  { url: "Assets/Images/frozen man.jpg" },
+  // Add more image URLs as needed
+];
+
 // let cardsData = [];
 // function getData() {
 //   //hits api in console on browser such as star wars api from example in class or cats api
@@ -92,9 +100,9 @@ window.addEventListener("load", setRandomImage);
 
 // getData(); //calls function
 
-//function to make form submission do stuff
+// function to make form submission do stuff
 function submitButton(event) {
-  /// this is a function to pull local data not from api
+  /// this is a function to pull local data not from api.
   console.log("button clicked");
   const title = document.getElementById("news-title");
   const content = document.getElementById("news-content");
@@ -108,24 +116,56 @@ function submitButton(event) {
   news.push(newItems);
 }
 
-// Array of pre-stored image URLs
-const images = [
-  { url: "Assets/Images/guittar add with flavor.jpg" },
-  { url: "Assets/Images/blowing fire.jpg" },
-  { url: "Assets/Images/frozen man.jpg" },
-  // Add more image URLs as needed
-];
+// function for sending new post to "database" that is then collected via the fetch call below
+function createPost() {
+  //sets up variables that grab values from the form submission
+  const title = document.getElementById("news-title");
+  const content = document.getElementById("news-content");
+  const URL = document.getElementById("news-URL");
 
-// function add(item) {
-//   const template = document
-//     .getElementById("card-template")
-//     .content.cloneNode(true);
+  //creates a new object and assigns the new element values to keys. AKA key:value pairing
+  const postData = {
+    title: title.value,
+    content: content.nodeValue,
+    URL: URL.value,
+  };
 
-//   template.querySelector(".card-title").innerText = item.title;
-//   template.querySelector(".card-text").innerText = item.content;
-//   template.querySelector(".card-image").src = item.imgURL;
-//   document.querySelector("#card-list").appendChild(template);
-// }
+  //sends this to backend using a fetch method
+  fetch(`http://localhost:3000/feed/posts/add`, {
+    method: "POST", // must specify what type of method to use as we are sending data.
+    body: JSON.stringify(postData), // converts to JSON >>> attaches data to request body
+    headers: {
+      "Content-Type": "application/json; charset=UTF-8", // not necessary in our case because we are directing to a localish database BUT this is good practice for using a database later on.
+    },
+  }) //the smooth bracket MUST go here at the end as the fetch call needs to include the URL AND the options object
+    .then((response) => response.json()) //This part is waiting for a response from server for first part.
+
+    .then((data) => {
+      console.log(data);
+
+      // this will direct user to main page to check success of post
+      if (data.result) {
+        console.log(data.result);
+        // location.assign("http://localhost:3000/"); // this navigates user to local host address.
+      } else if (data.error) {
+        console.log(data.error);
+        const errorElement = document.getElementById("error");
+        errorElement.innerHTML = data.error;
+      }
+    })
+    .catch((error) => console.error(error)); //this logs error for user if there is one. It also doesn't redirect user to main page linked above if an error is caught
+}
+
+function add(item) {
+  const template = document
+    .getElementById("card-template")
+    .content.cloneNode(true);
+
+  template.querySelector(".card-title").innerText = item.title;
+  template.querySelector(".card-text").innerText = item.content;
+  template.querySelector(".card-image").src = item.imgURL;
+  document.querySelector("#card-list").appendChild(template);
+}
 
 //adds new card when form is submitted on main page. Can also tie this to the submit button on new post page I guess
 function addCard(card) {
