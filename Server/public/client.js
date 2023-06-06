@@ -122,13 +122,14 @@ function createPost() {
   const title = document.getElementById("news-title");
   const content = document.getElementById("content");
   const URL = document.getElementById("news-URL");
+  
 
   //creates a new object and assigns the new element values to keys. AKA key:value pairing
   const postData = {
     title: title.value,
-    content: content.nodeValue,
+    content: content.value, //////PRETTY SURE THIS IS THE ISSUE HERE/////
     URL: URL.value,
-  };
+  }
 
   //sends this to backend using a fetch method
   fetch(`http://localhost:3000/feed/posts/add`, {
@@ -156,16 +157,16 @@ function createPost() {
     .catch((error) => console.error(error)); //this logs error for user if there is one. It also doesn't redirect user to main page linked above if an error is caught
 }
 
-function add(item) {
-  const template = document
-    .getElementById("card-template")
-    .content.cloneNode(true);
+// function add(item) {
+//   const template = document
+//     .getElementById("card-template")
+//     .content.cloneNode(true);
 
-  template.querySelector(".card-title").innerText = item.title;
-  template.querySelector(".card-text").innerText = item.content;
-  template.querySelector(".card-image").src = item.imgURL;
-  document.querySelector("#card-list").appendChild(template);
-}
+//   template.querySelector(".card-title").innerText = item.title;
+//   template.querySelector(".card-text").innerText = item.content;
+//   template.querySelector(".card-image").src = item.imgURL;
+//   document.querySelector("#card-list").appendChild(template);
+// }
 
 //adds new card when form is submitted on main page. Can also tie this to the submit button on new post page I guess
 function addCard(card) {

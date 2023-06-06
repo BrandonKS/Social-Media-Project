@@ -24,6 +24,7 @@ const getPostById = (req, res) => {
 
 const addPost = (req, res) => {
   const data = req.body;
+  // console.log(req.body)
   console.log("Add post", req.body); //controllers goal here is to check if properties are all accounted for before adding to database aka title content and URL
 
   if (data.title && data.content) {
