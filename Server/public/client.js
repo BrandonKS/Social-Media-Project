@@ -126,7 +126,7 @@ function createPost() {
   //creates a new object and assigns the new element values to keys. AKA key:value pairing
   const postData = {
     title: title.value,
-    content: content.nodeValue,
+    content: content.value,  //CHANGED FROM ORIGINAL CONTENT.NODEVALUE... not sure why I had that but it was a placeholder for something.
     URL: URL.value,
   };
 
@@ -139,14 +139,13 @@ function createPost() {
     },
   }) //the smooth bracket MUST go here at the end as the fetch call needs to include the URL AND the options object
     .then((response) => response.json()) //This part is waiting for a response from server for first part.
-
     .then((data) => {
       console.log(data);
 
       // this will direct user to main page to check success of post
       if (data.result) {
         console.log(data.result);
-        // location.assign("http://localhost:3000/"); // this navigates user to local host address.
+        location.assign("http://localhost:3000/"); // this navigates user to local host address.
       } else if (data.error) {
         console.log(data.error);
         const errorElement = document.getElementById("error");
